@@ -575,10 +575,13 @@ def find_elasticsearch_version(elastic):
     if not ES_VER:
         res = requests_ses.get(elastic.url)
         version = res.json()['version']['number'].split(".")
-        main_ver = version[0]
-        mid_ver = version[1]
-        ES_VER = int(main_ver)
-        ES_VER_MID = int(mid_ver)
+        distribution = res.json()['version']['distribution']
+        if distribution == 'opensearch':
+            ES_VER = 7
+            ES_VER_MID = 10
+        else:
+            ES_VER = int(version[0])
+            ES_VER_MID = int(version[1])
     return ES_VER, ES_VER_MID
 
 
