@@ -51,7 +51,7 @@ MAX_RETRIES_ON_READ = 8
 MAX_RETRIES_ON_CONNECT = 21
 STATUS_FORCE_LIST = [408, 409, 429, 502, 503, 504]
 
-KIBANA_INDEX_NAME = ".kibana"
+KIBANA_INDEX_NAME = ".opensearch_dashboards"
 
 # This mapping includes the types metadashboard and projectname, used by Kibiter. They must be
 # include in this way, since the mapping for .kibana is set to strict for versions >= 6.8
